@@ -1,0 +1,755 @@
+{
+  "title": "10-Level PMCS Checklist for M1151/M1151A1 and M1165/M1165A1 HMMWV",
+  "schema_version": "1.0.0",
+  "generated_date": "2026-08-16",
+  "vehicle_name_correction": {
+    "user_entered": ["M11A51", "M11A65"],
+    "interpreted_as": ["M1151", "M1151A1", "M1165", "M1165A1"],
+    "note": "Confirm the model and serial number on the vehicle data plate before use."
+  },
+  "technical_manual": {
+    "number": "TM 9-2320-387-10",
+    "title": "Operator's Manual for the M1113/M1114/M1151/M1152/M1165/M1167 HMMWV family and M997A3",
+    "edition_used": "28 September 2012",
+    "pmcs_work_packages": {
+      "introduction": "WP 0099",
+      "before": "WP 0100",
+      "during": "WP 0101",
+      "after": "WP 0102",
+      "weekly": "WP 0103",
+      "monthly": "WP 0104"
+    },
+    "source_url": "https://www.scribd.com/document/802262775/TM-9-2320-387-10-PMCS-Only",
+    "authoritative_access_note": "Before operational use, verify the current TM edition and changes in the Army ETM/AESIP/LDAC system. This JSON is a structured aid, not a replacement for the current authenticated TM, warnings, cautions, lubrication order, or DA Form 5988-E/2404."
+  },
+  "applies_to": [
+    {"model": "M1151", "nsn": "2320-01-518-7330", "eic": "BA5", "description": "Expanded Capacity Armament Carrier"},
+    {"model": "M1151A1", "nsn": "2320-01-540-2038", "eic": "BEG", "description": "Expanded Capacity Armament Carrier, IAP/Armor Ready"},
+    {"model": "M1165", "nsn": "2320-01-540-1993", "eic": "BEK", "description": "Command and Control/General Purpose Vehicle"},
+    {"model": "M1165A1", "nsn": "2320-01-540-2017", "eic": "BEJ", "description": "Command and Control/General Purpose Vehicle, IAP/Armor Ready"}
+  ],
+  "use_rules": [
+    "Follow the TM sequence and perform every check applicable to the exact model, installed kits, and serial number.",
+    "Perform Before, After, and Weekly checks when operating the vehicle for the first time or when the assigned driver has not operated it since the last weekly inspection.",
+    "Record faults on DA Form 5988-E or DA Form 2404 and notify the supervisor or field maintenance as required.",
+    "Do not operate when a listed not-ready/available condition exists unless properly authorized under current maintenance policy.",
+    "Do not crawl beneath an unsecured vehicle, remove a hot cooling-system cap, or conduct fuel/battery checks near flame or sparks."
+  ],
+  "leak_classification": {
+    "class_I": "Wetness or discoloration without drops forming.",
+    "class_II": "Drops form but do not fall.",
+    "class_III": "Drops form and fall.",
+    "operating_rule": "Class I or II leakage may be allowable except any brake-fluid leak; check levels frequently. Report all brake-fluid leakage and all Class III leakage immediately."
+  },
+  "steps": [
+    {
+      "global_rank": 1,
+      "interval": "before",
+      "interval_rank": 1,
+      "tm_item_no": 1,
+      "item": "Left front and left-side exterior",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Look underneath for fluid leaks.", "Inspect the front and left side for damage affecting operation.", "Before airlift, verify the left-front shackle and mounting hardware are secure and present."],
+      "not_ready_if": ["Any brake-fluid leak is present.", "A Class III oil, fuel, or coolant leak is present.", "Damage prevents operation.", "A required airlift shackle fastener is loose or missing."],
+      "notes": ["Do not tighten transfer-case oil-cooler retaining nuts; notify field maintenance."]
+    },
+    {
+      "global_rank": 2,
+      "interval": "before",
+      "interval_rank": 2,
+      "tm_item_no": 2,
+      "item": "Left-side tires",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Visually inspect both left-side tires for underinflation, damage, and other defects."],
+      "not_ready_if": ["A tire is missing, flat, underinflated, or otherwise unserviceable."]
+    },
+    {
+      "global_rank": 3,
+      "interval": "before",
+      "interval_rank": 3,
+      "tm_item_no": 3,
+      "item": "Rear exterior",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Look underneath the rear for leaks.", "Inspect rear body and equipment for damage affecting operation.", "Before towing, inspect bumper supports for cracks.", "Before airlift, verify rear shackles and mounting hardware."],
+      "not_ready_if": ["Any brake-fluid leak is present.", "A Class III oil, fuel, or coolant leak is present.", "Damage prevents operation or safe towing.", "Required shackle hardware is loose or missing."]
+    },
+    {
+      "global_rank": 4,
+      "interval": "before",
+      "interval_rank": 4,
+      "tm_item_no": 4,
+      "item": "Right front and right-side exterior",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Look underneath for leaks.", "Inspect the front and right side for damage affecting operation.", "Before airlift, verify the right-front shackle and mounting hardware."],
+      "not_ready_if": ["Any brake-fluid leak is present.", "A Class III oil, fuel, or coolant leak is present.", "Damage prevents operation.", "Required shackle hardware is loose or missing."]
+    },
+    {
+      "global_rank": 5,
+      "interval": "before",
+      "interval_rank": 5,
+      "tm_item_no": 6,
+      "item": "Right-side tires",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Visually inspect both right-side tires for underinflation, damage, and other defects."],
+      "not_ready_if": ["A tire is missing, flat, underinflated, or otherwise unserviceable."]
+    },
+    {
+      "global_rank": 6,
+      "interval": "before",
+      "interval_rank": 6,
+      "tm_item_no": 7,
+      "item": "Front exterior",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Inspect the front for obvious damage affecting operation.", "Look underneath the front for leaks."],
+      "not_ready_if": ["Damage prevents operation.", "Any brake-fluid leak is present.", "A Class III oil, fuel, or coolant leak is present."]
+    },
+    {
+      "global_rank": 7,
+      "interval": "before",
+      "interval_rank": 7,
+      "tm_item_no": "8 or 9",
+      "item": "Power-steering reservoir",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "serial_conditions": {"196900_and_below": "Level between HOT and COLD marks; add if below COLD.", "196901_and_above": "Hot fluid at top of sight glass; cold fluid at center; add if at bottom."},
+      "checks": ["Use the serial-number-specific reservoir check.", "Keep dirt out and do not overfill."],
+      "not_ready_if": []
+    },
+    {
+      "global_rank": 8,
+      "interval": "before",
+      "interval_rank": 8,
+      "tm_item_no": 10,
+      "item": "Serpentine drive belt and pulleys",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Inspect drive and idler pulleys for wear or misalignment.", "Inspect belt for missing, broken, cracked, frayed, loose, split, or off-groove condition."],
+      "not_ready_if": ["A pulley is worn, broken, or misaligned.", "The belt is missing or broken.", "Belt fiber has more than one crack at least 1/8 inch deep or 50 percent of belt thickness.", "A fray is longer than 2 inches.", "The belt is loose or off one or more pulley grooves."]
+    },
+    {
+      "global_rank": 9,
+      "interval": "before",
+      "interval_rank": 9,
+      "tm_item_no": 11,
+      "item": "Cooling-system level",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["With the system cool, verify coolant is at or above the FULL COLD line; add the correct mixed coolant if low."],
+      "not_ready_if": [],
+      "warnings": ["Never remove the radiator cap from a recently operated/hot engine.", "Do not mix incompatible Type 1 green and Type 2 purple coolants."]
+    },
+    {
+      "global_rank": 10,
+      "interval": "before",
+      "interval_rank": 10,
+      "tm_item_no": 13,
+      "item": "Seats, seatbelts, and gunner restraint",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Inspect every seatbelt for secure mounting, damage, buckle engagement, and release.", "If equipped, inspect the gunner harness, tail strap, sling seat, brackets, retractor, rotary buckle, quick release, and clasps.", "Verify the driver-seat adjustment locks."],
+      "not_ready_if": ["Required gunner restraint equipment is missing, frayed, damaged, or will not fasten, adjust, retract, or release.", "The driver-seat adjustment lock is broken or missing."]
+    },
+    {
+      "global_rank": 11,
+      "interval": "before",
+      "interval_rank": 11,
+      "tm_item_no": 14,
+      "item": "Portable fire extinguisher",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Verify the extinguisher is installed and undamaged.", "Gauge should indicate about 150 psi and not be in the recharge zone.", "Verify the seal is intact."],
+      "not_ready_if": ["Extinguisher is missing or damaged.", "Gauge is in the recharge zone.", "Seal is broken or missing."]
+    },
+    {
+      "global_rank": 12,
+      "interval": "before",
+      "interval_rank": 12,
+      "tm_item_no": 15,
+      "item": "Automatic Fire Extinguishing System (AFES), if equipped",
+      "applies_to": ["M1151A1", "M1165A1", "equipped vehicles"],
+      "checks": ["Compare each bottle gauge with the minimum pressure shown on its label for the current temperature.", "Inspect wiring harnesses and sensors for secure installation and damage.", "Verify bottles, lever-lock pins, and tube assemblies are installed; anti-recoil plugs are properly stowed.", "Set the rotary switch to RUN and verify a steady green control-module LED.", "Inspect required safety wire.", "Verify each fire-sensor LED is steady green and the sensor is clean."],
+      "not_ready_if": ["Bottle pressure is below the label minimum.", "Harness or sensor box is disconnected, damaged, incorrectly installed, or missing.", "Bottle, lever-lock pin, or tube assembly is missing.", "Control LED is off or blinking.", "Safety wire is damaged or missing.", "A sensor LED is off/blinking or its sensor is obstructed."],
+      "warnings": ["Treat every bottle as charged; do not remove lever-lock pins during PMCS."]
+    },
+    {
+      "global_rank": 13,
+      "interval": "before",
+      "interval_rank": 13,
+      "tm_item_no": 17,
+      "item": "Transmission and transfer-case shift levers",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["With engine off, move the transmission lever through all ranges.", "With transmission in N, move the transfer-case lever through all ranges."],
+      "not_ready_if": ["Either lever binds or is inoperable.", "Transfer case will not engage all ranges with engine off."]
+    },
+    {
+      "global_rank": 14,
+      "interval": "before",
+      "interval_rank": 14,
+      "tm_item_no": 18,
+      "item": "Instrument panel and engine start",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["At RUN, verify wait-to-start and brake warning lamps illuminate as applicable.", "Start engine.", "Check oil pressure: at least 10 psi at hot idle and normally 40-45 psi at 2,000 rpm.", "Verify voltmeter remains in green.", "Verify air-restriction indicator is not red.", "Release parking brake and verify brake lamp extinguishes.", "Check fuel gauge.", "Verify coolant gauge works and stays at or below 250 F without overheat lamp.", "Verify transmission indicator extinguishes after start.", "Verify transfer-case lamp logic: off in H/N and on in HL/L."],
+      "not_ready_if": ["Required warning lamp fails its self-check or stays on abnormally.", "Engine will not start.", "Oil pressure is below the stated limit.", "Voltmeter remains yellow/red.", "Air-restriction indicator is red.", "Brake warning lamp remains on after brake release or illuminates while driving.", "Coolant gauge is inoperative, exceeds 250 F, or overheat lamp illuminates.", "Transmission indicator stays on after start.", "Transfer-case indicator does not match the selected range."],
+      "warnings": ["Shut down and notify supervision/maintenance if gauges or warning systems are outside TM limits."]
+    },
+    {
+      "global_rank": 15,
+      "interval": "before",
+      "interval_rank": 15,
+      "tm_item_no": 19,
+      "item": "Air conditioner",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Verify rear evaporator filter is clean and undamaged.", "With voltmeter green, run A/C for five minutes and confirm outlet air is cooler than ambient."],
+      "not_ready_if": ["Rear evaporator filter is dirty or damaged.", "Outlet air is not cooler than ambient."],
+      "notes": ["Below 40 F ambient, warm the vehicle before judging A/C operation; at 75 F or less, open all panel vents and use high fan."]
+    },
+    {
+      "global_rank": 16,
+      "interval": "before",
+      "interval_rank": 16,
+      "tm_item_no": 20,
+      "item": "Steering",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["With engine running, turn wheel left and right and verify smooth, free movement."],
+      "not_ready_if": ["Steering wheel binds or is inoperable."]
+    },
+    {
+      "global_rank": 17,
+      "interval": "before",
+      "interval_rank": 17,
+      "tm_item_no": 21,
+      "item": "Service and parking brakes",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Warm engine; with transfer case in H and parking brake released, let the vehicle creep in OD and apply the service brake.", "Verify brakes begin to take hold after approximately 1 to 1.5 inches of pedal travel.", "Fully apply parking brake and verify it holds in OD and R.", "Verify parking-brake lever safety latch engages."],
+      "not_ready_if": ["Service brakes will not stop the vehicle.", "Parking brake is inoperable or will not hold.", "Parking-brake safety latch does not work."]
+    },
+    {
+      "global_rank": 18,
+      "interval": "before",
+      "interval_rank": 18,
+      "tm_item_no": 22,
+      "item": "Weapon station",
+      "applies_to": ["M1151", "M1151A1"],
+      "checks": ["With the weapon or equivalent authorized weight installed, rotate the station 360 degrees both ways at least five times.", "Inspect armament mounting plate and bearing sleeve for secure mounting and damage."],
+      "not_ready_if": ["Weapon station binds.", "Mission requires the weapon and the mounting plate/bearing sleeve is missing or damaged enough to prevent mounting or operation."]
+    },
+    {
+      "global_rank": 19,
+      "interval": "before",
+      "interval_rank": 19,
+      "tm_item_no": 23,
+      "item": "Manual Traversing Unit (MTU)",
+      "applies_to": ["M1151A1"],
+      "checks": ["Inspect gear linkage and support bracket.", "Inspect traversing handle, screws, and quick-release pin.", "Inspect MTU cover.", "Test disengage handle.", "With MTU engaged, rotate the weapon station 360 degrees both ways at least five times."],
+      "not_ready_if": ["Linkage is bent, broken, or missing.", "Support-bracket hardware is loose or missing.", "Handle or quick-release pin is missing, damaged, or unserviceable.", "MTU cover is missing.", "Disengage handle does not work."],
+      "notes": ["If an operational BPMTU is installed, an MTU fault may not deadline the weapon system; apply the TM rule for the installed configuration."]
+    },
+    {
+      "global_rank": 20,
+      "interval": "during",
+      "interval_rank": 1,
+      "tm_item_no": 1,
+      "item": "Controls and indicators",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Monitor fuel level, oil pressure, coolant temperature, air-restriction gauge, voltmeter, brake warning lamp, and speedometer."],
+      "not_ready_if": ["Oil pressure falls below 10 psi at hot idle or outside 40-45 psi at 2,000 rpm.", "Coolant exceeds 250 F or overheat lamp illuminates.", "Air-restriction gauge shows restriction.", "Voltage is lost or brake warning lamp stays on.", "Speedometer does not move, sticks, or jerks unevenly at steady speed."]
+    },
+    {
+      "global_rank": 21,
+      "interval": "during",
+      "interval_rank": 2,
+      "tm_item_no": 2,
+      "item": "Braking behavior",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Observe for pulling or grabbing during brake application."],
+      "not_ready_if": ["Brakes pull or grab."]
+    },
+    {
+      "global_rank": 22,
+      "interval": "during",
+      "interval_rank": 3,
+      "tm_item_no": 3,
+      "item": "Steering and handling",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Watch for vibration, sway, lean, instability, excess free play, binding, or shimmy."],
+      "not_ready_if": ["Handling is unstable, turning is difficult, or abnormal free play, binding, or shimmy is present."]
+    },
+    {
+      "global_rank": 23,
+      "interval": "during",
+      "interval_rank": 4,
+      "tm_item_no": 4,
+      "item": "Accelerator pedal",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Verify smooth response without sticking or binding."],
+      "not_ready_if": ["Pedal sticks or binds."]
+    },
+    {
+      "global_rank": 24,
+      "interval": "during",
+      "interval_rank": 5,
+      "tm_item_no": 5,
+      "item": "Powertrain",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Listen and feel for abnormal noise or vibration from engine, transmission, transfer case, differentials, shafts, axles, or wheels."],
+      "not_ready_if": ["Unusual noise or vibration is detected."]
+    },
+    {
+      "global_rank": 25,
+      "interval": "during",
+      "interval_rank": 6,
+      "tm_item_no": 6,
+      "item": "Transmission operation",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Verify correct shifting and no slip."],
+      "not_ready_if": ["Transmission slips or will not shift."]
+    },
+    {
+      "global_rank": 26,
+      "interval": "during",
+      "interval_rank": 7,
+      "tm_item_no": 7,
+      "item": "Air conditioner, when required",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["With voltmeter green, run A/C five minutes and confirm outlet air is cooler than ambient."],
+      "not_ready_if": ["Mission/climate requires A/C and it is inoperable or outlet air is not cooler than ambient."]
+    },
+    {
+      "global_rank": 27,
+      "interval": "during",
+      "interval_rank": 8,
+      "tm_item_no": 9,
+      "item": "Windshield de-icer, when required",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Turn on de-icer and verify it clears steam, frost, or ice."],
+      "not_ready_if": ["Mission requires de-icing and the system does not work."]
+    },
+    {
+      "global_rank": 28,
+      "interval": "after",
+      "interval_rank": 1,
+      "tm_item_no": 1,
+      "item": "Transmission and transfer-case shift levers",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Start engine and move transmission through all ranges.", "With transmission in N, move transfer-case lever through all ranges."],
+      "not_ready_if": ["A lever binds or is inoperable.", "Transfer case will not engage every range."]
+    },
+    {
+      "global_rank": 29,
+      "interval": "after",
+      "interval_rank": 2,
+      "tm_item_no": 2,
+      "item": "Transmission fluid",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Park level, set brake, leave engine running at operating temperature, and idle accessories-off for three minutes.", "Cycle each gear for about three seconds and finish in P.", "Verify fluid is within dipstick crosshatch and service if low."],
+      "not_ready_if": [],
+      "notes": ["An overfull reading can indicate transfer-case fluid migration; notify field maintenance. Do not contaminate or overfill the transmission."]
+    },
+    {
+      "global_rank": 30,
+      "interval": "after",
+      "interval_rank": 3,
+      "tm_item_no": 3,
+      "item": "Fuel filter/water separator",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["With engine running and using a suitable container/hose, drain until fuel runs clear; close valve.", "Inspect for leakage, stop engine, and remove temporary hose."],
+      "not_ready_if": ["Fuel is still not clear after draining 1 pint.", "Class III leakage is present."],
+      "warnings": ["No smoking, flame, or sparks during fuel-system checks."]
+    },
+    {
+      "global_rank": 31,
+      "interval": "after",
+      "interval_rank": 4,
+      "tm_item_no": 4,
+      "item": "Left-side tires",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Inspect for underinflation, cuts, gouges, cracks, bulges, and penetrating objects."],
+      "not_ready_if": ["A tire is flat or otherwise unserviceable."]
+    },
+    {
+      "global_rank": 32,
+      "interval": "after",
+      "interval_rank": 5,
+      "tm_item_no": 5,
+      "item": "Left mirror",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Inspect for cracks, defects, secure mounting, and usable rearward view."],
+      "not_ready_if": []
+    },
+    {
+      "global_rank": 33,
+      "interval": "after",
+      "interval_rank": 6,
+      "tm_item_no": 6,
+      "item": "Left front and left-side underbody/exterior",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Look underneath for leaks.", "Inspect halfshaft CV boots and ball-joint boots for cuts or tears.", "Inspect frame crossmembers and underbody supports for missing hardware, cracks, bends, breaks, or structural corrosion.", "Inspect body damage affecting operation."],
+      "not_ready_if": ["Any brake-fluid leak or Class III oil/fuel/coolant leak exists.", "A crossmember/underbody support is missing hardware, cracked, broken, bent, or rusted through enough to affect operation.", "Body damage prevents operation."]
+    },
+    {
+      "global_rank": 34,
+      "interval": "after",
+      "interval_rank": 7,
+      "tm_item_no": 7,
+      "item": "Rear underbody/exterior",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Look underneath for leaks.", "Inspect CV and ball-joint boots.", "Inspect crossmembers and underbody supports.", "Inspect bumper/crossmember and inner braces around the towing pintle."],
+      "not_ready_if": ["Any brake-fluid leak or Class III oil/fuel/coolant leak exists.", "Structural support is missing hardware, cracked, broken, bent, or rusted through enough to affect operation.", "Bumper, crossmember, or pintle-area brace is cracked or broken."]
+    },
+    {
+      "global_rank": 35,
+      "interval": "after",
+      "interval_rank": 8,
+      "tm_item_no": 8,
+      "item": "Right-side tires",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Inspect for underinflation, cuts, gouges, cracks, bulges, and penetrating objects."],
+      "not_ready_if": ["A tire is flat or otherwise unserviceable."]
+    },
+    {
+      "global_rank": 36,
+      "interval": "after",
+      "interval_rank": 9,
+      "tm_item_no": 9,
+      "item": "Right mirror",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Inspect for cracks, defects, secure mounting, and usable rearward view."],
+      "not_ready_if": []
+    },
+    {
+      "global_rank": 37,
+      "interval": "after",
+      "interval_rank": 10,
+      "tm_item_no": 10,
+      "item": "Right front and right-side underbody/exterior",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Look underneath for leaks.", "Inspect CV and ball-joint boots.", "Inspect crossmembers and underbody supports.", "Inspect front/right body for damage affecting operation."],
+      "not_ready_if": ["Any brake-fluid leak or Class III oil/fuel/coolant leak exists.", "Structural support is missing hardware, cracked, broken, bent, or rusted through enough to affect operation.", "Damage prevents operation."]
+    },
+    {
+      "global_rank": 38,
+      "interval": "after",
+      "interval_rank": 11,
+      "tm_item_no": 11,
+      "item": "Engine oil",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Check dipstick; maintain between ADD and FULL without overfilling."],
+      "not_ready_if": ["Oil appears milky."]
+    },
+    {
+      "global_rank": 39,
+      "interval": "after",
+      "interval_rank": 12,
+      "tm_item_no": 12,
+      "item": "Power-steering lines and fittings",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Inspect all visible lines and fittings for leakage."],
+      "not_ready_if": ["Class III leakage is present."]
+    },
+    {
+      "global_rank": 40,
+      "interval": "after",
+      "interval_rank": 13,
+      "tm_item_no": 13,
+      "item": "Cooling-system hoses",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Inspect radiator hoses for leakage and visible damage."],
+      "not_ready_if": ["Class III leakage is present."]
+    },
+    {
+      "global_rank": 41,
+      "interval": "after",
+      "interval_rank": 14,
+      "tm_item_no": 14,
+      "item": "Brake master cylinder",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Inspect master-cylinder lines for leaks and verify cover is installed securely."],
+      "not_ready_if": ["Any leak is present or the cover is missing."]
+    },
+    {
+      "global_rank": 42,
+      "interval": "after",
+      "interval_rank": 15,
+      "tm_item_no": 15,
+      "item": "Exterior lights",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Test service-drive, turn-signal, blackout-marker, marker, blackout-drive, side-marker, tail, and stop lamps."],
+      "not_ready_if": [],
+      "notes": ["Use the correct light-switch test procedure; do not leave the rotary switch in RUN merely to test lights."]
+    },
+    {
+      "global_rank": 43,
+      "interval": "after",
+      "interval_rank": 16,
+      "tm_item_no": 16,
+      "item": "Horn",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Test horn when tactical conditions permit."],
+      "not_ready_if": []
+    },
+    {
+      "global_rank": 44,
+      "interval": "after",
+      "interval_rank": 17,
+      "tm_item_no": 17,
+      "item": "Windshield, wipers, and washer",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Inspect windshield for cracks, clouding, delamination, breaks, gouges, scratches, and vision obstructions.", "Test wipers, blades, motor, and washer; check washer-fluid level."],
+      "not_ready_if": ["Windshield damage or clouding impairs the driver's view.", "Bond between armored glass and frame is separated.", "Inner or outer windshield surface has a complete break.", "Inner surface has digs, gouges, or scratches that meet the TM deadline condition."]
+    },
+    {
+      "global_rank": 45,
+      "interval": "after",
+      "interval_rank": 18,
+      "tm_item_no": 18,
+      "item": "Switch shutdown",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Verify all electrical/light switches are OFF before leaving the vehicle."],
+      "not_ready_if": []
+    },
+    {
+      "global_rank": 46,
+      "interval": "weekly",
+      "interval_rank": 1,
+      "tm_item_no": 1,
+      "item": "Hand throttle",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Inspect throttle and bracket security, release operation, and cable for corrosion, nicks, breaks, or burns."],
+      "not_ready_if": []
+    },
+    {
+      "global_rank": 47,
+      "interval": "weekly",
+      "interval_rank": 2,
+      "tm_item_no": 2,
+      "item": "Tires, wheels, and inflation",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Inspect tread wear, cuts, gouges, cracks, bulges, and uneven wear.", "Inspect wheel studs and lug nuts.", "Gauge cold pressure and adjust to the exact model/load-range table in WP 0002."],
+      "not_ready_if": ["Tread is at or below the 1/16-inch wear bar.", "Damage reaches cord body, a bulge exists, or wear/balance is excessive.", "Any wheel stud or lug nut is missing or broken."],
+      "warnings": ["Do not exceed 50 psi cold and do not mix Load Range D and E tires, valves, or wheels."]
+    },
+    {
+      "global_rank": 48,
+      "interval": "weekly",
+      "interval_rank": 3,
+      "tm_item_no": 3,
+      "item": "Exhaust system",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Inspect mounts, clamps, bolts, pipes, rust-through, breaks, and evidence of exhaust leakage."],
+      "not_ready_if": ["A mount is broken, a pipe is rusted through/broken, or an exhaust leak is evident."]
+    },
+    {
+      "global_rank": 49,
+      "interval": "weekly",
+      "interval_rank": 4,
+      "tm_item_no": 4,
+      "item": "Shock absorbers",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Inspect for leakage, damage, and secure mounting."],
+      "not_ready_if": ["Class III leakage or damage exists, or a mount is damaged/loose."]
+    },
+    {
+      "global_rank": 50,
+      "interval": "weekly",
+      "interval_rank": 5,
+      "tm_item_no": "5 or 6",
+      "item": "Doors and door glass",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "variant_checks": {"M1151_M1165": ["Check door/window operation, door cracks, latches, hinges, handles, looseness, and missing parts."], "M1151A1_M1165A1": ["Test crew-door locks.", "Inspect inner armored-glass spall liner for separation, breaks, delamination, gouges, scratches, adhesives, and blurred vision.", "Inspect outer door glass for complete breaks."]},
+      "not_ready_if": ["A door cannot secure or has a visible crack making it unserviceable.", "Latch, hinge, handle, or required part is loose, missing, or unserviceable.", "Armored-glass bond separates, either surface has a complete break, or the inner surface has disqualifying damage."]
+    },
+    {
+      "global_rank": 51,
+      "interval": "weekly",
+      "interval_rank": 6,
+      "tm_item_no": 7,
+      "item": "Tailgate",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Verify the tailgate opens, closes, and latches securely."],
+      "not_ready_if": []
+    },
+    {
+      "global_rank": 52,
+      "interval": "weekly",
+      "interval_rank": 7,
+      "tm_item_no": 8,
+      "item": "Armor/body checks listed for armament-carrier variants",
+      "applies_to": ["M1151", "M1151A1"],
+      "checks": ["Inspect cargo-shell door, latches, lift cylinders, retaining wire rope, straps, seal alignment, armor mounting/fasteners/cracks, and underbody plates/retainers/screws/deformation.", "Check C-partition door locks in all three positions."],
+      "not_ready_if": ["Cargo door/latch/lift components are bent, warped, binding, or inoperable.", "Retaining wire rope is damaged, missing, or unsecured.", "Armor is cracked.", "Underbody plate retention exceeds the TM missing/loose limit or any plate is buckled, collapsed, or bent.", "C-partition door cannot close and lock in all three positions."],
+      "notes": ["TM 9-2320-387-10 WP 0103 item 8 explicitly lists M1151/M1151A1 but not M1165/M1165A1; do not silently apply this item to another model without the current TM/configuration authority."]
+    },
+    {
+      "global_rank": 53,
+      "interval": "weekly",
+      "interval_rank": 8,
+      "tm_item_no": 9,
+      "item": "Geared fan drive grease fittings",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "serial_conditions": {"300000_and_above": "Inspect for all required grease fittings."},
+      "checks": ["For serial number 300000 and above, verify geared-fan-drive grease fittings are present."],
+      "not_ready_if": ["One or more required grease fittings is missing."]
+    },
+    {
+      "global_rank": 54,
+      "interval": "weekly",
+      "interval_rank": 9,
+      "tm_item_no": 10,
+      "item": "Vehicular heater/winterization kit, if equipped",
+      "applies_to": ["equipped M1151", "equipped M1151A1", "equipped M1165", "equipped M1165A1"],
+      "checks": ["Test heater and controls.", "Inspect fuel lines/fittings/filter, wiring, connectors, exhaust, mounting, and missing components."],
+      "not_ready_if": ["Mission requires heat and heater is inoperable.", "Class III fuel leakage exists and mission requires heat.", "Wires are frayed/broken.", "Heater exhaust is damaged or parts are missing.", "Fuel filter has Class III leakage."]
+    },
+    {
+      "global_rank": 55,
+      "interval": "weekly",
+      "interval_rank": 10,
+      "tm_item_no": 11,
+      "item": "Air cleaner and intake",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Inspect weather cap, cleaner body, intake hose, air horn, mounts, and damage that could admit unfiltered air."],
+      "not_ready_if": ["Damage or loose mounting allows unfiltered air into the engine."]
+    },
+    {
+      "global_rank": 56,
+      "interval": "weekly",
+      "interval_rank": 11,
+      "tm_item_no": 12,
+      "item": "Power-steering and alternator brackets",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Inspect brackets and bolts for cracks, damage, and looseness."],
+      "not_ready_if": ["A bracket is cracked or a bolt is damaged/loose."]
+    },
+    {
+      "global_rank": 57,
+      "interval": "weekly",
+      "interval_rank": 12,
+      "tm_item_no": 13,
+      "item": "Cooling system and oil cooler",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Inspect fan and pulley.", "Inspect radiator and hoses for leaks/clogs/damage.", "Inspect radiator supports, side brackets, weldments, and hardware.", "Inspect fan shroud.", "Inspect engine oil cooler and hoses."],
+      "not_ready_if": ["Fan or pulley is bent, broken, cracked, or loose.", "Radiator or engine-oil-cooler system has Class III leakage.", "Radiator supports are broken/damaged/missing hardware or broken weldments allow movement.", "Fan shroud damage or looseness affects function or mounting."]
+    },
+    {
+      "global_rank": 58,
+      "interval": "weekly",
+      "interval_rank": 13,
+      "tm_item_no": 14,
+      "item": "Batteries and battery box",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Remove commander seat as directed; inspect cases, posts, cables, holddowns, leaks, and corrosion.", "For serviceable batteries, maintain electrolyte to split ring with distilled water.", "Inspect battery box for corrosion/water and clear drain holes."],
+      "not_ready_if": ["A battery is missing, unserviceable, or leaking.", "A terminal/cable is loose or corroded, or holddown is insecure."],
+      "warnings": ["Remove jewelry and keep flames, sparks, and smoking away from batteries."]
+    },
+    {
+      "global_rank": 59,
+      "interval": "weekly",
+      "interval_rank": 14,
+      "tm_item_no": 15,
+      "item": "Weapon station hatch, brake, and sling",
+      "applies_to": ["M1151", "M1151A1"],
+      "checks": ["Inspect hatch/hinge for bending, cracks, warping, or damage.", "Test weapon-station brake.", "Inspect gunner sling and hook."],
+      "not_ready_if": ["Hatch or hinges are inoperable.", "Brake does not work.", "Sling is torn/worn or hook is damaged."]
+    },
+    {
+      "global_rank": 60,
+      "interval": "weekly",
+      "interval_rank": 15,
+      "tm_item_no": 16,
+      "item": "Tiedowns and stowage restraints",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Inspect footman loops, brackets, tiedowns, and straps for presence, secure mounting, operation, cleanliness, tears, frays, and damage."],
+      "not_ready_if": []
+    },
+    {
+      "global_rank": 61,
+      "interval": "weekly",
+      "interval_rank": 16,
+      "tm_item_no": 17,
+      "item": "Tow pintle",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Inspect pintle hook for looseness, damaged lock, and cotter pin."],
+      "not_ready_if": []
+    },
+    {
+      "global_rank": 62,
+      "interval": "weekly",
+      "interval_rank": 17,
+      "tm_item_no": 18,
+      "item": "HVAC/environmental-control system",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Inspect vents, refrigerant lines/fittings, hardware, components, and mounting.", "Inspect exposed wiring for breaks, frays, connector damage, and missing hardware."],
+      "not_ready_if": ["A suspected refrigerant leak exists in lines/fittings.", "Wiring is broken, frayed, or damaged.", "Required mounting hardware is missing."]
+    },
+    {
+      "global_rank": 63,
+      "interval": "weekly",
+      "interval_rank": 18,
+      "tm_item_no": 19,
+      "item": "Parking-brake linkage",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Inspect service/parking-brake assemblies for obstruction, broken actuating lever, or broken/missing spring."],
+      "not_ready_if": ["Actuating lever or spring is broken or missing."]
+    },
+    {
+      "global_rank": 64,
+      "interval": "weekly",
+      "interval_rank": 19,
+      "tm_item_no": 20,
+      "item": "Steering-gear mounting",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["With engine running, observe steering-gear mount while an assistant turns the wheel left and right."],
+      "not_ready_if": ["Any movement is visible at the steering-gear mounting area."]
+    },
+    {
+      "global_rank": 65,
+      "interval": "weekly",
+      "interval_rank": 20,
+      "tm_item_no": 21,
+      "item": "Windshield-washer reservoir",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Inspect reservoir for damage and check fluid level."],
+      "not_ready_if": []
+    },
+    {
+      "global_rank": 66,
+      "interval": "monthly",
+      "interval_rank": 1,
+      "tm_item_no": 1,
+      "item": "Whole-vehicle corrosion and structure",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Inspect the entire vehicle for corrosion, cracks, and breaks."],
+      "not_ready_if": ["Corrosion-through, a crack, or a break affects vehicle operation."]
+    },
+    {
+      "global_rank": 67,
+      "interval": "monthly",
+      "interval_rank": 2,
+      "tm_item_no": 2,
+      "item": "Tailgate structure and latch",
+      "applies_to": ["M1151", "M1151A1", "M1165", "M1165A1"],
+      "checks": ["Inspect tailgate for corrosion-through and damage; verify secure latching."],
+      "not_ready_if": ["Corrosion-through or other damage affects operation."]
+    },
+    {
+      "global_rank": 68,
+      "interval": "monthly",
+      "interval_rank": 3,
+      "tm_item_no": 3,
+      "item": "Winch, if equipped",
+      "applies_to": ["equipped M1151", "equipped M1151A1", "equipped M1165", "equipped M1165A1"],
+      "checks": ["Test winch controls.", "Inspect cable for kinks, frays, and breaks.", "Inspect tree-saver strap for cuts/abrasion; replace if red safety thread is visible or known overload occurred.", "Rewrap cable per WP 0033."],
+      "not_ready_if": []
+    },
+    {
+      "global_rank": 69,
+      "interval": "monthly",
+      "interval_rank": 4,
+      "tm_item_no": 4,
+      "item": "Canvas zippers, if equipped",
+      "applies_to": ["equipped M1151", "equipped M1151A1", "equipped M1165", "equipped M1165A1"],
+      "checks": ["Inspect canvas top/door zippers for corrosion and damage.", "Clean with a toothbrush and lubricate zipper/interlock and securing threads with the TM-authorized lubricant."],
+      "not_ready_if": []
+    }
+  ],
+  "summary": {
+    "total_ordered_steps": 69,
+    "steps_by_interval": {"before": 19, "during": 8, "after": 18, "weekly": 20, "monthly": 4},
+    "filtering_guidance": "Filter steps by interval, then by exact model, installed equipment, and serial_conditions. Preserve global_rank or interval_rank for execution order."
+  }
+}
