@@ -27,8 +27,8 @@ export function VehicleSelectionPage({
 
   if (!activePlatoon) {
     return (
-      <div className="mx-auto w-full max-w-[1040px] px-4 py-9 sm:px-5 sm:py-[52px]">
-        <p className="rounded-xl border border-[#d8decd] bg-white p-5 text-[#68735e]">
+      <div className="mx-auto w-full max-w-[900px] px-4 py-8 sm:px-6 sm:py-12">
+        <p className="border border-line bg-panel px-4 py-3 text-sm text-muted">
           No platoons are configured for this company yet.
         </p>
       </div>
@@ -36,20 +36,15 @@ export function VehicleSelectionPage({
   }
 
   return (
-    <div className="mx-auto w-full max-w-[1040px] px-4 py-9 sm:px-5 sm:py-[52px]">
-      <section className="max-w-[650px] text-left" aria-labelledby="page-title">
-        <p className="mb-2 text-[11px] font-extrabold uppercase tracking-[0.12em] text-[#68735e]">
-          10-level maintenance
-        </p>
+    <div className="mx-auto w-full max-w-[900px] px-4 py-8 sm:px-6 sm:py-12">
+      <section className="border-b border-line pb-5 text-left" aria-labelledby="page-title">
         <h1
           id="page-title"
-          className="font-display mb-3 text-[clamp(36px,5vw,50px)] leading-none font-semibold tracking-[-0.055em] text-ink"
+          className="text-[clamp(28px,4vw,36px)] leading-none font-semibold tracking-[-0.04em] text-ink"
         >
-          Select a vehicle
+          Vehicle roster
         </h1>
-        <p className="text-[15px] text-[#68735e]">
-          Choose your platoon and bumper number to begin a guided PMCS.
-        </p>
+        <p className="mt-2 text-sm text-muted">Select a platoon and bumper number to begin PMCS.</p>
       </section>
 
       <CompanySummary company={company} />

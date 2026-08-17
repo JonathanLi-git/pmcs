@@ -1,17 +1,31 @@
 @import "tailwindcss";
 
 @theme {
-  --font-display: Georgia, "Times New Roman", serif;
-  --color-ink: #1f281e;
-  --color-surface: #f2f4eb;
-  --color-forest-950: #1b271b;
-  --color-forest-800: #405334;
-  --color-olive-300: #d4dd9a;
+  --font-display: "Segoe UI", Arial, sans-serif;
+  --color-black: #101417;
+  --color-ink: #eef1f0;
+  --color-surface: #15191d;
+  --color-panel: #1e242a;
+  --color-panel-raised: #272f36;
+  --color-line: #3a444d;
+  --color-muted: #b4bec5;
+  --color-accent: #6eaa7b;
+  --color-accent-strong: #4f7c5a;
+  --color-accent-soft: #203629;
+  --color-selected: #7899c2;
+  --color-selected-soft: #263646;
+  --color-warning: #d6a74f;
+  --color-fault: #c96b63;
+  --color-fault-soft: #3d2928;
+  --color-forest-950: #15191d;
+  --color-forest-800: #1e2a34;
+  --color-olive-300: #6eaa7b;
 }
 
 @layer base {
   body {
     @apply m-0 min-w-80 bg-surface font-sans text-ink antialiased;
+    color-scheme: dark;
   }
 
   button,
@@ -19,5 +33,9 @@
   select,
   textarea {
     font: inherit;
+  }
+
+  ::selection {
+    @apply bg-accent text-black;
   }
 }

@@ -58,28 +58,24 @@ export function PmcsPage({ companyName, platoon, vehicle, onChangeVehicle }: Pmc
     () => getPmcsChecklistForVehicle(vehicle.type, interval),
     [interval, vehicle.type],
   )
+
   if (checklistResolution.status === 'template-pending') {
     return (
-      <div className="mx-auto w-full max-w-[820px] px-4 py-8 sm:px-5 sm:py-12">
-        <section className="rounded-2xl border border-[#d9cf9e] bg-[#fffbed] p-6 text-center shadow-[0_12px_26px_rgba(40,54,31,0.06)] sm:p-9">
-          <p className="text-[11px] font-extrabold uppercase tracking-[0.12em] text-[#7c6719]">
-            Checklist source needed
-          </p>
-          <h1 className="font-display mt-2 text-[clamp(30px,5vw,42px)] leading-tight font-semibold tracking-[-0.05em] text-ink">
-            {vehicleLabel} PMCS template pending
+      <div className="mx-auto w-full max-w-[860px] px-4 py-8 sm:px-5 sm:py-12">
+        <section className="border-y border-line py-8 text-left sm:py-10">
+          <p className="text-xs font-extrabold uppercase tracking-[0.12em] text-warning">Checklist needed</p>
+          <h1 className="mt-2 text-[clamp(28px,5vw,40px)] font-semibold tracking-[-0.04em] text-ink">
+            {vehicleLabel} template pending
           </h1>
-          <p className="mt-4 text-sm leading-relaxed text-[#675b2d]">
+          <p className="mt-3 text-sm text-muted">
             {vehicle.bumper} &middot; {companyName} &middot; {platoon.name}
           </p>
-          <p className="mt-5 rounded-xl border border-[#e2d49b] bg-white/75 p-4 text-sm leading-relaxed text-[#665921]">
+          <p className="mt-6 border-l-2 border-warning pl-4 text-sm leading-relaxed text-muted">
             {checklistResolution.message}
-          </p>
-          <p className="mt-4 text-sm leading-relaxed text-[#6c643d]">
-            The app intentionally will not display HMMWV PMCS instructions for an LMTV.
           </p>
           <button
             type="button"
-            className="mt-6 min-h-11 rounded-lg bg-[#405c2f] px-4 text-sm font-extrabold text-white transition hover:bg-[#314922] focus:outline-none focus-visible:ring-3 focus-visible:ring-[#a5c848] focus-visible:ring-offset-3"
+            className="mt-7 min-h-11 border border-accent bg-accent px-4 text-sm font-extrabold text-black transition hover:bg-[#82bd8f] focus:outline-none focus-visible:ring-3 focus-visible:ring-selected focus-visible:ring-offset-3 focus-visible:ring-offset-surface"
             onClick={onChangeVehicle}
           >
             Change vehicle
@@ -146,7 +142,11 @@ export function PmcsPage({ companyName, platoon, vehicle, onChangeVehicle }: Pmc
       return
     }
 
-    replaceCurrentAnswer((answer) => ({ ...answer, outcome }))
+    replaceCurrentAnswer((answer) => ({
+      ...answer,
+      outcome,
+      faultNote: outcome === 'fault' ? answer.faultNote : '',
+    }))
   }
 
   function setFaultNote(faultNote: string) {
@@ -195,39 +195,33 @@ export function PmcsPage({ companyName, platoon, vehicle, onChangeVehicle }: Pmc
 
   if (submission) {
     return (
-      <div className="mx-auto w-full max-w-[820px] px-4 py-8 sm:px-5 sm:py-12">
-        <section className="rounded-2xl border border-[#bbd29f] bg-[#f3f9ea] p-6 text-center shadow-[0_12px_26px_rgba(40,54,31,0.06)] sm:p-9">
-          <span className="mx-auto grid size-12 place-items-center rounded-full bg-[#dcecc7] text-2xl text-[#40602d]" aria-hidden="true">
-            &check;
-          </span>
-          <p className="mt-5 text-[11px] font-extrabold uppercase tracking-[0.12em] text-[#5a7541]">
-            Operator verification recorded
-          </p>
-          <h1 className="font-display mt-2 text-[clamp(30px,5vw,42px)] leading-tight font-semibold tracking-[-0.05em] text-ink">
-            Ready for supervisor review
+      <div className="mx-auto w-full max-w-[860px] px-4 py-8 sm:px-5 sm:py-12">
+        <section className="border-y border-selected/60 py-8 text-left sm:py-10">
+          <p className="text-xs font-extrabold uppercase tracking-[0.12em] text-selected">Local prototype</p>
+          <h1 className="mt-2 text-[clamp(28px,5vw,40px)] font-semibold tracking-[-0.04em] text-ink">
+            Review prepared
           </h1>
-          <p className="mt-4 text-sm leading-relaxed text-[#4e6541]">
-            {vehicle.bumper} &middot; {vehicleLabel} &middot; {checklist.intervalLabel} &middot; Signed by{' '}
-            {submission.operatorName} at {new Date(submission.attestedAt).toLocaleString()}.
+          <p className="mt-3 text-sm leading-relaxed text-muted">
+            {vehicle.bumper} &middot; {vehicleLabel} &middot; {checklist.intervalLabel} &middot; {submission.operatorName}
           </p>
-          <p className="mt-4 rounded-xl border border-[#cedebd] bg-white/70 p-4 text-sm leading-relaxed text-[#5c6c53]">
-            This browser prototype does not yet persist or transmit the record. The future backend should store this
-            signed inspection and route it to the supervisor queue.
+          <p className="mt-2 text-xs text-muted">{new Date(submission.attestedAt).toLocaleString()}</p>
+          <p className="mt-5 border-l-2 border-selected pl-4 text-sm font-semibold text-ink">
+            Not submitted or saved.
           </p>
-          <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <button
               type="button"
-              className="min-h-11 rounded-lg border border-[#aabc91] bg-white px-4 text-sm font-extrabold text-[#425c30] transition hover:border-[#829f63] focus:outline-none focus-visible:ring-3 focus-visible:ring-[#a5c848] focus-visible:ring-offset-3"
+              className="min-h-11 border border-line bg-black px-4 text-sm font-extrabold text-ink transition hover:border-selected/60 focus:outline-none focus-visible:ring-3 focus-visible:ring-selected focus-visible:ring-offset-3 focus-visible:ring-offset-surface"
               onClick={() => {
                 setSubmission(null)
                 setIsReviewing(true)
               }}
             >
-              View signed summary
+              View summary
             </button>
             <button
               type="button"
-              className="min-h-11 rounded-lg bg-[#405c2f] px-4 text-sm font-extrabold text-white transition hover:bg-[#314922] focus:outline-none focus-visible:ring-3 focus-visible:ring-[#a5c848] focus-visible:ring-offset-3"
+              className="min-h-11 border border-accent bg-accent px-4 text-sm font-extrabold text-black transition hover:bg-[#82bd8f] focus:outline-none focus-visible:ring-3 focus-visible:ring-selected focus-visible:ring-offset-3 focus-visible:ring-offset-surface"
               onClick={onChangeVehicle}
             >
               Inspect another vehicle
@@ -255,16 +249,15 @@ export function PmcsPage({ companyName, platoon, vehicle, onChangeVehicle }: Pmc
 
   if (!currentStep) {
     return (
-      <div className="mx-auto w-full max-w-[820px] px-4 py-8 sm:px-5 sm:py-12">
-        <section className="rounded-2xl border border-[#e4c7b5] bg-[#fff8f3] p-6 text-center">
-          <h1 className="font-display text-3xl font-semibold text-ink">Checklist unavailable</h1>
-          <p className="mt-3 text-sm leading-relaxed text-[#6b5549]">
-            No applicable steps were found for this vehicle type and interval. Confirm the selected vehicle and
-            checklist source before continuing.
+      <div className="mx-auto w-full max-w-[860px] px-4 py-8 sm:px-5 sm:py-12">
+        <section className="border-y border-line py-8 text-left sm:py-10">
+          <h1 className="text-3xl font-semibold text-ink">Checklist unavailable</h1>
+          <p className="mt-3 text-sm leading-relaxed text-muted">
+            No applicable steps were found for this vehicle and interval.
           </p>
           <button
             type="button"
-            className="mt-5 min-h-11 rounded-lg bg-[#405c2f] px-4 text-sm font-extrabold text-white transition hover:bg-[#314922]"
+            className="mt-6 min-h-11 border border-accent bg-accent px-4 text-sm font-extrabold text-black transition hover:bg-[#82bd8f] focus:outline-none focus-visible:ring-3 focus-visible:ring-selected focus-visible:ring-offset-3 focus-visible:ring-offset-surface"
             onClick={onChangeVehicle}
           >
             Change vehicle
@@ -275,56 +268,45 @@ export function PmcsPage({ companyName, platoon, vehicle, onChangeVehicle }: Pmc
   }
 
   return (
-    <div className="mx-auto w-full max-w-[1040px] px-4 py-7 sm:px-5 sm:py-10">
+    <div className="mx-auto w-full max-w-[1040px] px-4 py-6 sm:px-5 sm:py-8">
       <button
         type="button"
-        className="inline-flex min-h-10 items-center gap-2 text-sm font-extrabold text-[#466034] transition hover:text-[#314922] focus:outline-none focus-visible:ring-3 focus-visible:ring-[#a5c848] focus-visible:ring-offset-3"
+        className="inline-flex min-h-10 items-center gap-2 border-b border-transparent text-sm font-extrabold text-muted transition hover:border-selected hover:text-ink focus:outline-none focus-visible:ring-3 focus-visible:ring-selected focus-visible:ring-offset-3 focus-visible:ring-offset-surface"
         onClick={onChangeVehicle}
       >
-        <span aria-hidden="true">&larr;</span> Change vehicle
+        <span aria-hidden="true">&larr;</span> Vehicles
       </button>
 
-      <section className="mt-5 rounded-2xl border border-[#cfd8bf] bg-[#f9fbf2] p-5 text-left sm:p-7">
-        <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
+      <header className="mt-4 border-y border-line py-5 sm:flex sm:items-end sm:justify-between sm:gap-6">
+        <div>
+          <p className="text-xs font-extrabold uppercase tracking-[0.12em] text-muted">Vehicle</p>
+          <h1 className="mt-1 text-[clamp(32px,5vw,44px)] font-semibold tracking-[-0.045em] text-ink">
+            {vehicle.bumper}
+          </h1>
+          <p className="mt-1 text-[15px] text-muted">
+            {vehicleLabel} &middot; {companyName} &middot; {platoon.name}
+          </p>
+        </div>
+        <dl className="mt-5 grid grid-cols-2 gap-x-8 border-t border-line pt-4 text-sm sm:mt-0 sm:min-w-[340px] sm:border-t-0 sm:pt-0">
           <div>
-            <p className="text-[11px] font-extrabold uppercase tracking-[0.12em] text-[#68735e]">PMCS in progress</p>
-            <h1 className="font-display mt-2 text-[clamp(32px,5vw,46px)] leading-none font-semibold tracking-[-0.055em] text-ink">
-              {vehicle.bumper} <span className="text-[#617452]">&middot;</span> {vehicleLabel}
-            </h1>
-            <p className="mt-3 text-[15px] text-[#68735e]">
-              {companyName} &middot; {platoon.name} &middot; Roster type {vehicleLabel}
-            </p>
+            <dt className="text-[11px] font-extrabold uppercase tracking-[0.1em] text-muted">TM</dt>
+            <dd className="mt-1 font-semibold text-ink">{checklist.technicalManual.number}</dd>
           </div>
-
-          <div className="rounded-xl border border-[#d7dfc8] bg-white px-4 py-3 lg:min-w-56">
-            <span className="block text-[11px] font-extrabold uppercase tracking-[0.1em] text-[#68735e]">
-              TM reference
-            </span>
-            <strong className="mt-1 block text-sm text-ink">
-              {checklist.technicalManual.number} &middot; {checklist.technicalManual.workPackage}
-            </strong>
-            <span className="mt-1 block text-xs text-[#68735e]">{checklist.technicalManual.edition}</span>
-          </div>
-        </div>
-
-        <div className="mt-6 rounded-xl border border-[#ead59c] bg-[#fff7dc] p-4 text-sm leading-relaxed text-[#72520b]">
-          <strong>Source context:</strong> {checklist.sourceNotice}
-        </div>
-      </section>
-
-      <section className="mt-6 rounded-2xl border border-[#d8decd] bg-white p-4 sm:p-5" aria-labelledby="interval-heading">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-[11px] font-extrabold uppercase tracking-[0.12em] text-[#68735e]">Checklist interval</p>
-            <h2 id="interval-heading" className="font-display mt-1 text-[25px] font-semibold tracking-[-0.035em] text-ink">
-              Choose the inspection interval
-            </h2>
+            <dt className="text-[11px] font-extrabold uppercase tracking-[0.1em] text-muted">Interval</dt>
+            <dd className="mt-1 font-semibold text-ink">{checklist.intervalLabel}</dd>
           </div>
-          <span className="text-sm font-bold text-[#637259]">
-            {checklist.steps.length} applicable items for {vehicleLabel}
-          </span>
+        </dl>
+      </header>
+
+      <section className="border-b border-line py-5" aria-labelledby="interval-heading">
+        <div className="flex items-baseline justify-between gap-4">
+          <h2 id="interval-heading" className="text-sm font-extrabold uppercase tracking-[0.1em] text-ink">
+            Inspection interval
+          </h2>
+          <span className="text-sm text-muted">{checklist.steps.length} items</span>
         </div>
-        <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-5" role="tablist" aria-label="PMCS intervals">
+        <div className="mt-3 grid grid-cols-2 border-y border-line sm:grid-cols-5" aria-label="PMCS intervals">
           {pmcsIntervals.map((availableInterval) => {
             const isSelected = interval === availableInterval
 
@@ -332,12 +314,11 @@ export function PmcsPage({ companyName, platoon, vehicle, onChangeVehicle }: Pmc
               <button
                 key={availableInterval}
                 type="button"
-                role="tab"
-                aria-selected={isSelected}
-                className={`min-h-11 rounded-lg border px-3 text-sm font-extrabold transition focus:outline-none focus-visible:ring-3 focus-visible:ring-[#a5c848] focus-visible:ring-offset-2 ${
+                aria-pressed={isSelected}
+                className={`min-h-11 border-b-2 px-3 text-sm font-extrabold transition focus:outline-none focus-visible:ring-3 focus-visible:ring-selected focus-visible:ring-offset-2 focus-visible:ring-offset-surface sm:border-b-0 sm:border-r sm:last:border-r-0 ${
                   isSelected
-                    ? 'border-[#5f7d43] bg-[#496737] text-white shadow-[0_3px_8px_rgba(52,79,35,0.18)]'
-                    : 'border-[#d4dcc8] bg-[#fbfcf8] text-[#53614b] hover:border-[#9cad87]'
+                    ? 'border-selected bg-selected-soft text-ink'
+                    : 'border-transparent bg-transparent text-muted hover:bg-panel-raised hover:text-ink'
                 }`}
                 onClick={() => selectInterval(availableInterval)}
               >
@@ -348,55 +329,52 @@ export function PmcsPage({ companyName, platoon, vehicle, onChangeVehicle }: Pmc
         </div>
       </section>
 
-      <details className="mt-4 rounded-xl border border-[#d8decd] bg-[#fbfcf8] px-4 py-3 text-sm text-[#56634e]">
-        <summary className="cursor-pointer font-extrabold text-[#42513a]">Checklist guidance and leak reference</summary>
+      <details className="border-b border-line py-3 text-sm text-muted">
+        <summary className="cursor-pointer font-extrabold text-ink">TM guidance and leak limits</summary>
         <div className="mt-4 grid gap-5 lg:grid-cols-2">
-          <ul className="list-disc space-y-2 pl-5 leading-relaxed">
-            {checklist.useRules.map((rule) => (
-              <li key={rule}>{rule}</li>
-            ))}
-          </ul>
-          <div className="rounded-lg border border-[#d9e2cd] bg-white p-3 leading-relaxed">
+          <div className="border-l-2 border-selected pl-4">
+            <p className="leading-relaxed">{checklist.sourceNotice}</p>
+            <p className="mt-3 text-xs text-muted">{checklist.technicalManual.workPackage}</p>
+            <ul className="mt-4 list-disc space-y-2 pl-5 leading-relaxed">
+              {checklist.useRules.map((rule) => (
+                <li key={rule}>{rule}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="border-l border-line pl-4 leading-relaxed">
             <p>
-              <strong>Class I:</strong> {checklist.leakClassification.classI}
+              <strong className="text-ink">Class I:</strong> {checklist.leakClassification.classI}
             </p>
             <p className="mt-2">
-              <strong>Class II:</strong> {checklist.leakClassification.classII}
+              <strong className="text-ink">Class II:</strong> {checklist.leakClassification.classII}
             </p>
             <p className="mt-2">
-              <strong>Class III:</strong> {checklist.leakClassification.classIII}
+              <strong className="text-ink">Class III:</strong> {checklist.leakClassification.classIII}
             </p>
-            <p className="mt-3 font-semibold text-[#4f623f]">{checklist.leakClassification.operatingRule}</p>
+            <p className="mt-3 font-semibold text-ink">{checklist.leakClassification.operatingRule}</p>
           </div>
         </div>
       </details>
 
-      <section className="mt-8" aria-label="PMCS progress">
+      <section className="border-b border-line py-5" aria-label="PMCS progress">
         <div className="flex items-end justify-between gap-4">
           <div>
-            <p className="text-[11px] font-extrabold uppercase tracking-[0.12em] text-[#68735e]">
-              {checklist.intervalLabel} &middot; Item {currentStepIndex + 1} of {checklist.steps.length}
-            </p>
-            <h2 className="font-display mt-1 text-[25px] font-semibold tracking-[-0.03em] text-ink">
-              {completedStepCount} of {checklist.steps.length} ready for review
+            <p className="text-xs font-extrabold uppercase tracking-[0.12em] text-selected">{checklist.intervalLabel}</p>
+            <h2 className="mt-1 text-[24px] font-semibold tracking-[-0.03em] text-ink">
+              Item {currentStepIndex + 1} / {checklist.steps.length}
             </h2>
           </div>
-          <span className="text-right text-sm font-bold text-[#5a6851]">
-            {currentStep.sourceTable ? `${currentStep.sourceTable} · ` : ''}TM item {currentStep.tmItemNo}
-          </span>
+          <span className="text-right text-sm font-bold text-muted">{completedStepCount} complete</span>
         </div>
         <div
-          className="mt-4 h-2 overflow-hidden rounded-full bg-[#dfe6d2]"
+          className="mt-4 h-1.5 overflow-hidden bg-line"
           role="progressbar"
           aria-valuemin={0}
           aria-valuemax={checklist.steps.length}
           aria-valuenow={currentStepIndex + 1}
           aria-label={`Item ${currentStepIndex + 1} of ${checklist.steps.length}`}
         >
-          <div
-            className="h-full rounded-full bg-[#627c41] transition-[width] duration-200"
-            style={{ width: `${progress}%` }}
-          />
+          <div className="h-full bg-accent transition-[width] duration-200" style={{ width: `${progress}%` }} />
         </div>
       </section>
 
@@ -411,24 +389,26 @@ export function PmcsPage({ companyName, platoon, vehicle, onChangeVehicle }: Pmc
         />
       </div>
 
-      <section className="mt-5 flex items-center justify-between gap-4 rounded-2xl border border-[#d8decd] bg-[#fcfdf8] p-4 shadow-[0_8px_20px_rgba(42,54,34,0.05)]">
-        <button
-          type="button"
-          className="min-h-11 rounded-lg border border-[#cfd7c3] bg-white px-4 text-sm font-extrabold text-[#44523d] transition hover:border-[#98a67b] disabled:cursor-not-allowed disabled:border-[#e0e4da] disabled:text-[#9aa391] focus:outline-none focus-visible:ring-3 focus-visible:ring-[#a5c848] focus-visible:ring-offset-3"
-          disabled={isFirstStep}
-          onClick={() => setCurrentStepIndex((stepIndex) => Math.max(0, stepIndex - 1))}
-        >
-          &larr; Previous
-        </button>
-        <button
-          type="button"
-          className="min-h-11 rounded-lg bg-[#405c2f] px-4 text-sm font-extrabold text-white shadow-[0_4px_10px_rgba(39,59,28,0.2)] transition hover:-translate-y-0.5 hover:bg-[#314922] disabled:cursor-not-allowed disabled:bg-[#e0e4da] disabled:text-[#839077] disabled:shadow-none focus:outline-none focus-visible:ring-3 focus-visible:ring-[#a5c848] focus-visible:ring-offset-3"
-          disabled={!isStepReadyForReview(currentStep, currentAnswer) || (isLastStep && !allStepsReady)}
-          onClick={moveToNextStep}
-        >
-          {isLastStep ? 'Review virtual 5988' : 'Save and next'} {!isLastStep && <span>&rarr;</span>}
-        </button>
-      </section>
+      <footer className="sticky bottom-0 z-10 -mx-4 mt-6 border-t border-line bg-surface px-4 py-3 sm:-mx-5 sm:px-5">
+        <div className="mx-auto flex max-w-[1040px] items-center justify-between gap-4">
+          <button
+            type="button"
+            className="min-h-11 border border-line bg-black px-4 text-sm font-extrabold text-ink transition hover:border-selected/60 disabled:cursor-not-allowed disabled:border-line/50 disabled:text-muted/45 focus:outline-none focus-visible:ring-3 focus-visible:ring-selected focus-visible:ring-offset-3 focus-visible:ring-offset-surface"
+            disabled={isFirstStep}
+            onClick={() => setCurrentStepIndex((stepIndex) => Math.max(0, stepIndex - 1))}
+          >
+            &larr; Previous
+          </button>
+          <button
+            type="button"
+            className="min-h-11 border border-accent bg-accent px-5 text-sm font-extrabold text-black transition hover:bg-[#82bd8f] disabled:cursor-not-allowed disabled:border-[#313a42] disabled:bg-[#313a42] disabled:text-[#88959f] focus:outline-none focus-visible:ring-3 focus-visible:ring-selected focus-visible:ring-offset-3 focus-visible:ring-offset-surface"
+            disabled={!isStepReadyForReview(currentStep, currentAnswer) || (isLastStep && !allStepsReady)}
+            onClick={moveToNextStep}
+          >
+            {isLastStep ? 'Review record' : 'Next item'} {!isLastStep && <span>&rarr;</span>}
+          </button>
+        </div>
+      </footer>
     </div>
   )
 }

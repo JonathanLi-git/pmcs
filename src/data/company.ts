@@ -4,7 +4,7 @@ export const demoCompany: Company = {
   name: "Charlie Company",
   unit: "63D ESB-E",
   platoons: [
-     {
+    {
       id: "Headquarters",
       name: "Headquarters",
       vehicles: [
@@ -12,8 +12,8 @@ export const demoCompany: Company = {
         { id: "C-7", bumper: "C-7", type: "M11A51" },
         { id: "C-30", bumper: "C-30", type: "M11A51" },
         { id: "C-31", bumper: "C-31", type: "M11A51" },
-        { id: "C-32", bumper: "C-32", type: "M11A65" },
-        { id: "C-33", bumper: "C-33", type: "M11A65" },
+        { id: "C-32", bumper: "C-32", type: "M11A51" },
+        { id: "C-33", bumper: "C-33", type: "M11A51" },
         { id: "C-40", bumper: "C-40", type: "M1078" },
       ],
     },

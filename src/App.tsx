@@ -32,7 +32,7 @@ function App() {
   }
 
   return (
-    <main className="min-h-svh bg-[radial-gradient(circle_at_top_right,_rgba(217,226,177,0.42),_transparent_31rem)] text-ink">
+    <main className="min-h-svh bg-surface text-ink">
       <AppHeader />
 
       {screen === 'pmcs' && selectedVehicleContext ? (
